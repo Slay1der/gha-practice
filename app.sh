@@ -5,3 +5,4 @@ echo "Today is: $(date)"
 
    if [[ -f README.md ]]; then
        echo "README exists"
+       fi
