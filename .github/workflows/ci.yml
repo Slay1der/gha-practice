@@ -1,7 +1,10 @@
 name: CI
 
-on: push
-
+on:
+  push:                  # trigger 1: someone pushes to main
+    branches: [main]
+  pull_request:          # trigger 2: someone opens or updates a pull request
+  workflow_dispatch:     # trigger 3: someone clicks the "Run workflow" button
 jobs:
     check:
         runs-on: ubuntu-latest
