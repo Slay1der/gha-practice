@@ -6,9 +6,14 @@ on:
   pull_request:          # trigger 2: someone opens or updates a pull request
   workflow_dispatch:     # trigger 3: someone clicks the "Run workflow" button
 jobs:
-    check:
+    validate:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - run: "bash -n app.sh"
-            - run: "bash app.sh"
+    run-app:
+      needs: validate
+      runs-on: ubuntu-latest
+      steps:
+          - uses: actions/checkout@v4
+          - run: "bash app.sh"
