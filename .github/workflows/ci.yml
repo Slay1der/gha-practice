@@ -16,4 +16,5 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - uses: actions/checkout@v4
+          - run: echo "Triggered by ${{ github.actor }}"
           - run: "bash app.sh"
