@@ -18,5 +18,8 @@ jobs:
           - uses: actions/checkout@v4
           - run: |
               echo "Triggered by ${{ github.actor }}"
-              echo "Branch: ${{ github.ref }}"  
+              echo "Branch: ${{ github.ref }}"
+              echo "My secret is: $SECRET_VALUE"
+            env:
+              SECRET_VALUE: ${{ secrets.MY_SECRET }}
           - run: "bash app.sh"
